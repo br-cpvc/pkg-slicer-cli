@@ -25,6 +25,7 @@ for binfile in OrientScalarVolume
 do
     cp $bindir/$binfile ${deb_root}/usr/bin/
 done
+mv ${deb_root}/usr/bin/OrientScalarVolume ${deb_root}/usr/bin/OrientScalarVolume_new
 
 version="5.2.1"  # TODO: parse from itk lib file
 package="pkg-slicer-cli"
