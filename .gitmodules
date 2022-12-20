@@ -1,0 +1,6 @@
+[submodule "deps/Slicer"]
+	path = deps/Slicer
+	url = https://github.com/Slicer/Slicer.git
+[submodule "deps/SlicerExecutionModel"]
+	path = deps/SlicerExecutionModel
+	url = https://github.com/Slicer/SlicerExecutionModel.git
