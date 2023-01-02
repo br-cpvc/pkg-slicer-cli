@@ -26,6 +26,11 @@ fi
 build_script=$1
 source $build_script $itk_dir
 
+# remove the 'itk::PluginFilterWatcherCLPProcessInformation...CLPProcessInformation);''
+# lines, which spams xml filter communication to std out.
+# -z matches multiple lines as one, [^/]* chooses the shortest match
+sed -zi "s/  itk::PluginFilterWatcher[^/]*CLPProcessInformation);\n//g" deps/Slicer/Modules/CLI/OrientScalarVolume/OrientScalarVolume.cxx
+
 mkdir -p $outputdir/build
 cd $outputdir/build
 cmake $cwd/ \
