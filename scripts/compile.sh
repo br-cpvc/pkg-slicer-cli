@@ -32,6 +32,23 @@ source $build_script $itk_dir
 # -z matches multiple lines as one, [^/]* chooses the shortest match
 sed -zi "s/  itk::PluginFilterWatcher[^/]*CLPProcessInformation);\n//g" deps/Slicer/Modules/CLI/OrientScalarVolume/OrientScalarVolume.cxx
 
+mkdir -p $outputdir/SlicerExecutionModel/build
+cd $outputdir/SlicerExecutionModel/build
+cmake $cwd/deps/SlicerExecutionModel/ \
+-DCMAKE_BUILD_TYPE=Release \
+-DCMAKE_C_COMPILER=/usr/bin/gcc-11 \
+-DCMAKE_CXX_COMPILER=/usr/bin/g++-11 \
+-DITK_DIR=$cwd/$itk_dir/build \
+-DCMAKE_CXX_FLAGS="-fopenmp -std=c++11 -fpermissive" \
+-DCMAKE_EXE_LINKER_FLAGS="-static" \
+-DBUILD_SHARED_LIBS:BOOL=OFF \
+-DCMAKE_FIND_LIBRARY_SUFFIXES=".a"
+sh ${script_dir}/make.sh
+cd $cwd
+
+# this has been replaced by the cmake commands described in: https://www.slicer.org/wiki/Documentation/Nightly/Developers/SlicerExecutionModel#Using_GenerateCLP
+#./output/SlicerExecutionModel/build/GenerateCLP/bin/GenerateCLP --InputXML deps/Slicer/Modules/CLI/OrientScalarVolume/OrientScalarVolume.xml --OutputCxx output/build/OrientScalarVolumeCLP.h #deps/Slicer/Modules/CLI/OrientScalarVolume/OrientScalarVolumeCLP.h
+
 mkdir -p $outputdir/build
 cd $outputdir/build
 cmake $cwd/ \
