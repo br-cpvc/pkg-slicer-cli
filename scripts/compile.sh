@@ -11,7 +11,7 @@ if [[ "$old_method" == true ]]; then
     #itk_version="4.5.0"
     #itk_version="4.7.2"
     itk_version=4.8.2
-    itk_version=5.2.1
+    itk_version=5.3.0
     itk_dir_prefix="InsightToolkit"
     outputdir=$2
     source ${script_dir}/dwn_itk.sh $itk_dir_prefix $itk_version $outputdir
