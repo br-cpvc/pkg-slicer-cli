@@ -15,13 +15,11 @@ if [ -d $itk_dir ]; then
     cmake .. \
 	-DCMAKE_INSTALL_PREFIX=../install \
 	-DCMAKE_BUILD_TYPE=Release \
-	-DCMAKE_C_COMPILER=/usr/bin/gcc \
-	-DCMAKE_CXX_COMPILER=/usr/bin/g++ \
+	-DCMAKE_C_COMPILER=/usr/bin/gcc-11 \
+	-DCMAKE_CXX_COMPILER=/usr/bin/g++-11 \
 	-DBUILD_EXAMPLES:BOOL=OFF \
 	-DBUILD_TESTING:BOOL=OFF \
-        -DITKV3_COMPATIBILITY=ON \
         -DITK_WRAP_PYTHON=OFF \
-        -DINSTALL_WRAP_ITK_COMPATIBILITY=OFF \
 	-DBUILD_SHARED_LIBS=OFF \
 	-DITK_DYNAMIC_LOADING=OFF
     n=`nproc --ignore 1`

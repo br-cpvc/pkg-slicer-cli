@@ -11,6 +11,7 @@ if [[ "$old_method" == true ]]; then
     #itk_version="4.5.0"
     #itk_version="4.7.2"
     itk_version=4.8.2
+    itk_version=5.2.1
     itk_dir_prefix="InsightToolkit"
     outputdir=$2
     source ${script_dir}/dwn_itk.sh $itk_dir_prefix $itk_version $outputdir
@@ -36,8 +37,8 @@ cd $outputdir/build
 cmake $cwd/ \
 -DCMAKE_INSTALL_PREFIX=../install \
 -DCMAKE_BUILD_TYPE=Release \
--DCMAKE_C_COMPILER=/usr/bin/gcc-4.8 \
--DCMAKE_CXX_COMPILER=/usr/bin/g++-4.8 \
+-DCMAKE_C_COMPILER=/usr/bin/gcc-11 \
+-DCMAKE_CXX_COMPILER=/usr/bin/g++-11 \
 -DITK_DIR=$cwd/$itk_dir/build \
 -DCMAKE_CXX_FLAGS="-fopenmp -std=c++11 -fpermissive" \
 -DCMAKE_EXE_LINKER_FLAGS="-static" \
