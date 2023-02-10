@@ -27,7 +27,7 @@ do
 done
 mv ${deb_root}/usr/bin/OrientScalarVolume ${deb_root}/usr/bin/OrientScalarVolume_new
 
-version="5.2.1"  # TODO: parse from itk lib file
+version="4.8.2"  # TODO: parse from itk lib file
 package="pkg-slicer-cli"
 maintainer="Slicer/Slicer <https://github.com/Slicer/Slicer/issues>"
 arch="amd64"
